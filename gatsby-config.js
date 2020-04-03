@@ -45,6 +45,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
           plugins: [
@@ -65,7 +72,7 @@ module.exports = {
         langKeyDefault: languages.defaultLangKey,
         useLangKeyLayout: true,
         prefixDefault: false,
-        pagesPaths: ['src/pages', 'src/markdown-pages'],
+        pagesPaths: ['src/pages', 'src/markdown-pages', 'src/projects'],
         markdownRemark: {
           postPage: 'src/templates/projectTemplate.js',
           query: `

@@ -4,15 +4,15 @@ import { graphql } from 'gatsby';
 import Layout from 'layouts/de';
 import Home from 'components/Home/index.de.js';
 
-const IndexPage = ({ data, location }) => (
-  <Layout location={location}>
-    <Home data={data} />
+const IndexPage = (props) => (
+  <Layout location={props.location}>
+    <Home {...props} />
   </Layout>
 );
 
 export const query = graphql`
   query IndexPageDeQuery {
-    allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, filter: {fields: {langKey: {eq: "de"}}}) {
+    allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, filter: {fields: {langKey: {eq: "de"}} fileAbsolutePath: {regex: "/(projects)/.*\\\\.md$/"}}) {
       nodes {
         fields {
           slug
