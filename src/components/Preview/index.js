@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 import Icon from 'components/Icon';
 
@@ -19,7 +20,14 @@ const Preview = ({ frontmatter: { path, thumbnail, innerThumb, title, descriptio
     )}
     <div className="ProjectPreview__Mask" />
     {title && <div className="ProjectPreview__Title"><h2>{title}</h2></div>}
-    {thumbnail && <div className="ProjectPreview__Thumbnail" style={{ backgroundImage: thumbnail ? `url(${thumbnail.childImageSharp ? thumbnail.childImageSharp.fluid.src : thumbnail})` : '' }} />}
+    {thumbnail && (
+      <Img
+        className="ProjectPreview__Thumbnail"
+        {...thumbnail.childImageSharp}
+        objectFit="cover"
+      />
+    )}
+    {false && thumbnail && <div className="ProjectPreview__Thumbnail" style={{ backgroundImage: thumbnail ? `url(${thumbnail.childImageSharp ? thumbnail.childImageSharp.fluid.src : thumbnail})` : '' }} />}
   </div>
 );
 

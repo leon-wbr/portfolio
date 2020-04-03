@@ -23,9 +23,8 @@ export const query = graphql`
           icon
           thumbnail {
             childImageSharp {
-              fluid {
-                src
-                srcSet
+              fluid(maxWidth: 1024) {
+                ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
