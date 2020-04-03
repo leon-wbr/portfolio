@@ -1,6 +1,7 @@
 const languages = require('./src/intl/languages');
 
 module.exports = {
+  pathPrefix: "/portfolio",
   siteMetadata: {
     title: `Leon Weber`,
     description: `Personal website`,
