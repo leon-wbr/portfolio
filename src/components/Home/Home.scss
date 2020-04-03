@@ -1,0 +1,42 @@
+@import 'variables';
+
+.Home__Grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  &Column {
+    & > p {
+      margin-bottom: 150px;
+    }
+
+    & > div {
+      margin-bottom: 100px;
+    }
+
+    &--left {
+      padding-right: 50px;
+    }
+
+    &--right {
+      padding-left: 50px;
+      padding-top: 100px;
+    }
+  }
+
+  @include breakpoint($small) {
+    &Column {
+      & > div { margin-bottom: 50px; }
+      &--left { padding-right: 25px; }
+      &--right { padding-left: 25px; }
+    }
+  }
+
+  @include breakpoint($tablet) {
+    grid-template-columns: 100%;
+
+    &Column {
+      & > p { margin-bottom: 50px; }
+      padding: 0;
+    }
+  }
+}

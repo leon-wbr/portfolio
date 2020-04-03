@@ -1,0 +1,28 @@
+@import 'variables';
+
+.Footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  opacity: .9;
+
+  @include breakpoint($mobile) {
+    display: block;
+
+    & > div {
+      text-align: center;
+      margin-left: 0px !important;
+    }
+  }
+
+  h4 {
+    margin-bottom: .25em;
+  }
+
+  & > div {
+    &:last-of-type { margin-left: 50px; }
+    margin-bottom: 50px;
+
+    span { display: block; }
+  }
+}

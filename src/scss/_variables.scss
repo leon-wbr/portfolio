@@ -1,0 +1,11 @@
+$border-radius: 2px;
+
+$mobile: 400px;
+$tablet: 760px;
+$small: 1100px;
+
+@mixin breakpoint($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
