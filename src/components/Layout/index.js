@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 import "./Layout.scss"
 
-const Layout = ({ children, className, noHeader, smallHeader, noFooter }) => (
+const Layout = ({ langKey, children, className, noHeader, smallHeader, noFooter }) => (
   <div className={`Layout ${smallHeader ? 'Layout--smallHeader' : ''}`}>
     {!noHeader && <Header />}
     <main className={className}>{children}</main>

@@ -9,13 +9,14 @@ import './projectTemplate.scss';
 export default function Template({ data }) {
   const {
     markdownRemark: {
+      fields: { langKey },
       frontmatter,
       html,
     },
   } = data;
 
   return (
-    <Layout smallHeader className={'Project'}>
+    <Layout smallHeader className={'Project'}  {...{ langKey }}>
       <SEO title={frontmatter.title} />
       <h2>{frontmatter.title}</h2>
       {frontmatter.videoId && (
@@ -56,6 +57,9 @@ export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(fields: { slug: { eq: $path } }) {
       html
+      fields {
+        langKey
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path

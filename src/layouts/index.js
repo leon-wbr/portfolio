@@ -31,7 +31,7 @@ const Layout = ({ children, location, i18nMessages }) => {
             locale={langKey}
             messages={i18nMessages}
           >
-            {children}
+            {React.cloneElement(children, { langKey })}
           </IntlProvider>
         )
       }}

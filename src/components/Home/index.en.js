@@ -6,7 +6,7 @@ import Preview from 'components/Preview';
 
 import './Home.scss';
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ langKey, data }) => {
   const projects = data.allMarkdownRemark.nodes.reduce((obj, item, index) => {
     if (index % 2 === 0) {
       obj.even.push(item);
@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
   }, { odd: [], even: [] });
 
   return (
-    <Layout noHeader className={'Home'}>
+    <Layout noHeader className={'Home'}  {...{ langKey }}>
       <SEO />
       <h1>My name is Leon.</h1>
       <div className={'Home__Grid'}>
